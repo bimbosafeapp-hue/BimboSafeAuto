@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — BimboSafe in Auto</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #060d1a;
+    color: #f0f4ff;
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.7;
+  }
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .logo {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  .logo-text { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; }
+  .logo-text span { color: #FFD700; }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 900;
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+  .meta {
+    font-size: 13px;
+    color: #7090b0;
+    margin-bottom: 48px;
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFD700;
+    margin: 40px 0 12px;
+    padding-left: 14px;
+    border-left: 3px solid #FFD700;
+  }
+  p { color: #b0c4d8; margin-bottom: 14px; font-size: 15px; }
+  ul { color: #b0c4d8; padding-left: 20px; margin-bottom: 14px; }
+  ul li { margin-bottom: 8px; font-size: 15px; }
+  .highlight {
+    background: rgba(255,215,0,0.06);
+    border: 1px solid rgba(255,215,0,0.15);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .highlight p { color: #f0f4ff; margin: 0; font-weight: 500; }
+  .highlight span { color: #FFD700; font-weight: 700; }
+  footer {
+    margin-top: 60px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 13px;
+    color: #7090b0;
+  }
+  a { color: #FFD700; text-decoration: none; }
+  strong { color: #f0f4ff; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="logo">👶</div>
+    <div class="logo-text">BimboSafe <span>in Auto</span></div>
+  </header>
+
+  <h1>Privacy Policy</h1>
+  <div class="meta">Ultimo aggiornamento: Giugno 2026 · Versione 1.0</div>
+
+  <div class="highlight">
+    <p><span>In sintesi:</span> BimboSafe in Auto non raccoglie, non trasmette e non condivide alcun dato personale con server esterni. Tutto rimane sul tuo dispositivo.</p>
+  </div>
+
+  <h2>1. Titolare del trattamento</h2>
+  <p>Il titolare del trattamento dei dati è lo sviluppatore dell'applicazione BimboSafe in Auto, distribuita tramite Google Play Store.</p>
+  <p>Per qualsiasi richiesta relativa alla privacy: <a href="mailto:bimbosafe.app@gmail.com">bimbosafe.app@gmail.com</a></p>
+
+  <h2>2. Dati raccolti e finalità</h2>
+  <p>BimboSafe in Auto raccoglie e utilizza i seguenti dati <strong>esclusivamente sul dispositivo locale</strong>, senza trasmissione a server esterni:</p>
+  <ul>
+    <li><strong>Dati di posizione GPS</strong> — utilizzati esclusivamente per includere il link Google Maps nell'SMS di emergenza. La posizione non viene mai trasmessa ad app esterne o server. Viene utilizzata solo l'ultima posizione nota al momento dell'allarme.</li>
+    <li><strong>Contatti di emergenza (numeri di telefono)</strong> — salvati localmente sul dispositivo nelle SharedPreferences. Utilizzati esclusivamente per l'invio dell'SMS di allarme. Non vengono mai trasmessi a terzi.</li>
+    <li><strong>Indirizzo MAC del dispositivo Bluetooth</strong> — salvato localmente per il monitoraggio della connessione. Non viene mai trasmesso.</li>
+    <li><strong>Impostazioni dell'app</strong> — preferenze locali (configurazione allarme, dispositivo BT selezionato). Rimangono sul dispositivo.</li>
+  </ul>
+
+  <h2>3. Dati NON raccolti</h2>
+  <p>BimboSafe in Auto <strong>non raccoglie</strong>:</p>
+  <ul>
+    <li>Dati identificativi dell'utente (nome, email, account)</li>
+    <li>Dati di utilizzo o analytics</li>
+    <li>Cronologia degli allarmi su server remoti</li>
+    <li>Dati biometrici</li>
+    <li>Dati di navigazione o comportamentali</li>
+    <li>Pubblicità personalizzata o tracking</li>
+  </ul>
+
+  <h2>4. Permessi richiesti</h2>
+  <p>L'app richiede i seguenti permessi Android, necessari al funzionamento:</p>
+  <ul>
+    <li><strong>BLUETOOTH / BLUETOOTH_CONNECT / BLUETOOTH_SCAN</strong> — per rilevare la connessione/disconnessione dal dispositivo Bluetooth dell'auto</li>
+    <li><strong>ACCESS_FINE_LOCATION / ACCESS_COARSE_LOCATION</strong> — per ottenere la posizione GPS da includere nell'SMS di emergenza</li>
+    <li><strong>ACCESS_BACKGROUND_LOCATION</strong> — per ottenere la posizione anche con app in background</li>
+    <li><strong>SEND_SMS</strong> — per inviare l'SMS di emergenza ai contatti salvati</li>
+    <li><strong>FOREGROUND_SERVICE</strong> — per mantenere il monitoraggio attivo in background</li>
+    <li><strong>WAKE_LOCK</strong> — per impedire al processore di dormire durante il monitoraggio</li>
+    <li><strong>RECEIVE_BOOT_COMPLETED</strong> — per riavviare il monitoraggio automaticamente dopo il riavvio del telefono</li>
+    <li><strong>VIBRATE</strong> — per la vibrazione degli allarmi</li>
+    <li><strong>POST_NOTIFICATIONS</strong> — per mostrare notifiche di stato del monitoraggio</li>
+  </ul>
+
+  <h2>5. Trasmissione dati a terzi</h2>
+  <p>L'app <strong>non trasmette alcun dato a terzi</strong>, ad eccezione di:</p>
+  <ul>
+    <li><strong>SMS di emergenza</strong> — il messaggio di testo viene inviato tramite la SIM del dispositivo ai numeri salvati dall'utente. Il contenuto dell'SMS include l'orario e, se disponibile, un link Google Maps con le coordinate GPS. Questo invio avviene esclusivamente in caso di allarme emergenza.</li>
+  </ul>
+  <p>Il link Google Maps nel messaggio punta al servizio di Google LLC. L'utente che apre il link è soggetto alle <a href="https://policies.google.com/privacy" target="_blank">norme sulla privacy di Google</a>.</p>
+
+  <h2>6. Conservazione dei dati</h2>
+  <p>Tutti i dati (contatti di emergenza, dispositivo BT, impostazioni) sono conservati localmente nel dispositivo tramite Android SharedPreferences. I dati vengono eliminati automaticamente alla disinstallazione dell'app o tramite la funzione "Ripristina configurazione" presente nelle impostazioni.</p>
+
+  <h2>7. Sicurezza</h2>
+  <p>Non esistendo trasmissioni di dati a server remoti, il rischio di violazione dei dati è minimo. I dati locali sono protetti dalle misure di sicurezza standard di Android (sandboxing delle app).</p>
+
+  <h2>8. Diritti dell'utente</h2>
+  <p>Ai sensi del GDPR (Regolamento UE 2016/679), l'utente ha diritto di:</p>
+  <ul>
+    <li>Accedere ai propri dati (visualizzabili direttamente nell'app)</li>
+    <li>Rettificare i dati (modificabili direttamente nell'app)</li>
+    <li>Cancellare i dati (tramite "Ripristina configurazione" o disinstallazione)</li>
+    <li>Revocare il consenso in qualsiasi momento disinstallando l'app</li>
+  </ul>
+  <p>Per esercitare i propri diritti: <a href="mailto:bimbosafe.app@gmail.com">bimbosafe.app@gmail.com</a></p>
+
+  <h2>9. Minori</h2>
+  <p>L'app è destinata all'utilizzo da parte di adulti (genitori/tutori). Non raccoglie consapevolmente dati relativi a minori.</p>
+
+  <h2>10. Modifiche alla Privacy Policy</h2>
+  <p>Eventuali modifiche alla presente informativa saranno notificate tramite aggiornamento dell'app sul Google Play Store. La data dell'ultimo aggiornamento è indicata in cima a questo documento.</p>
+
+  <h2>11. Base giuridica del trattamento</h2>
+  <p>Il trattamento dei dati di posizione e dei contatti di emergenza è basato sul <strong>consenso esplicito</strong> dell'utente, espresso in fase di configurazione dell'app (accettazione del disclaimer e concessione dei permessi). Il trattamento è necessario per la finalità di sicurezza per cui l'app è stata sviluppata.</p>
+
+  <h2>12. Normativa di riferimento</h2>
+  <ul>
+    <li>Regolamento UE 2016/679 (GDPR)</li>
+    <li>D.Lgs. 196/2003 (Codice Privacy italiano) come modificato dal D.Lgs. 101/2018</li>
+    <li>Legge 1 ottobre 2018, n. 117 (dispositivi anti-abbandono)</li>
+  </ul>
+
+  <footer>
+    <p><strong style="color:#f0f4ff;">BimboSafe in Auto</strong> — Privacy Policy</p>
+    <p style="margin-top:8px;">Per contatti: <a href="mailto:bimbosafe.app@gmail.com">bimbosafe.app@gmail.com</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
