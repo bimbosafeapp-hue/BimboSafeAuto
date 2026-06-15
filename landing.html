@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BimboSafe in Auto — Proteggi i tuoi bambini</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060d1a;
+    --surface: #0d1b2e;
+    --surface2: #122440;
+    --gold: #FFD700;
+    --gold2: #FFA500;
+    --red: #ef4444;
+    --green: #10b981;
+    --blue: #3b82f6;
+    --text: #f0f4ff;
+    --muted: #7090b0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 40px 20px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,165,0,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 20% 80%, rgba(59,130,246,0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,215,0,0.1);
+    border: 1px solid rgba(255,215,0,0.3);
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 32px;
+    animation: fadeInDown 0.6s ease;
+  }
+
+  .hero-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--gold), var(--gold2));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 52px;
+    margin: 0 auto 32px;
+    animation: float 3s ease-in-out infinite;
+    box-shadow: 0 20px 60px rgba(255,165,0,0.3);
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 8vw, 80px);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s ease 0.2s both;
+  }
+
+  .hero h1 span { color: var(--gold); }
+
+  .hero p {
+    font-size: clamp(16px, 2.5vw, 22px);
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.7;
+    margin: 0 auto 48px;
+    animation: fadeInUp 0.8s ease 0.4s both;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeInUp 0.8s ease 0.6s both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--gold), var(--gold2));
+    color: #000;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 30px rgba(255,165,0,0.4);
+  }
+
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(255,165,0,0.5); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text);
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+
+  /* ── Stats ── */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    animation: fadeInUp 0.8s ease 0.8s both;
+  }
+
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--gold);
+    display: block;
+  }
+  .stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  /* ── Section ── */
+  section { padding: 100px 20px; max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  /* ── How it works ── */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .step {
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+
+  .step:hover { transform: translateY(-6px); border-color: rgba(255,215,0,0.3); }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(255,215,0,0.15);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .step-icon { font-size: 32px; margin-bottom: 16px; }
+  .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+  .step p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* ── Features ── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 60px;
+  }
+
+  .feature {
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 28px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: border-color 0.3s;
+  }
+
+  .feature:hover { border-color: rgba(59,130,246,0.4); }
+
+  .feature-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    background: var(--surface2);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .feature p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ── Alarm phases ── */
+  .alarm-timeline {
+    margin-top: 60px;
+    position: relative;
+  }
+
+  .alarm-timeline::before {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--green), #f59e0b, var(--red));
+  }
+
+  .alarm-item {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    padding-left: 20px;
+  }
+
+  .alarm-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 4px;
+    border: 3px solid var(--bg);
+  }
+
+  .alarm-content { flex: 1; }
+  .alarm-time { font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  .alarm-title { font-size: 20px; font-weight: 700; margin: 4px 0 6px; }
+  .alarm-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* ── CTA section ── */
+  .cta-section {
+    background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(255,165,0,0.04));
+    border: 1px solid rgba(255,215,0,0.15);
+    border-radius: 32px;
+    padding: 80px 40px;
+    text-align: center;
+    margin: 0 20px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(255,215,0,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ── Animations ── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Navbar ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(6,13,26,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold2));
+    color: #000;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  /* ── Disclaimer ── */
+  .disclaimer {
+    background: rgba(245,158,11,0.06);
+    border-left: 3px solid #f59e0b;
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-top: 60px;
+  }
+
+  .disclaimer strong { color: #f59e0b; }
+
+  @media (max-width: 600px) {
+    nav { padding: 14px 20px; }
+    .stats { gap: 32px; }
+    .alarm-timeline::before { left: 8px; }
+    .alarm-item { padding-left: 4px; }
+    section { padding: 60px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <div class="nav-logo">
+    <span>👶</span> BimboSafe <span>in Auto</span>
+  </div>
+  <a href="#download" class="nav-cta">Acquista ora</a>
+</nav>
+
+<!-- Hero -->
+<div class="hero" style="padding-top: 100px;">
+  <div class="hero-badge">🛡️ Protezione anti-abbandono • €1,99 una tantum</div>
+  <div class="hero-icon">👶</div>
+  <h1>Il tuo bambino<br><span>sempre al sicuro</span></h1>
+  <p>BimboSafe in Auto si connette al Bluetooth della tua auto e ti avvisa automaticamente se dimentichi il bambino. Nessuna azione richiesta.</p>
+  <div class="hero-cta">
+    <a href="#download" class="btn-primary">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.24.98.2l12.94-12.94L5.16.08c-.34-.04-.68.03-.98.2C3.48.71 3 1.5 3 2.38v19.24c0 .88.48 1.67 1.18 2.14z"/><path d="M19.5 10.5l-2.86-1.65L13.76 12l2.88 3.15 2.86-1.65c.86-.5.86-2.5 0-3z"/></svg>
+      Google Play Store
+    </a>
+    <a href="#come-funziona" class="btn-secondary">
+      Come funziona →
+    </a>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num">1,99€</span>
+      <div class="stat-label">Prezzo</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num">5min</span>
+      <div class="stat-label">Per configurarla</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num">100%</span>
+      <div class="stat-label">Automatica</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num">📍</span>
+      <div class="stat-label">GPS incluso</div>
+    </div>
+  </div>
+</div>
+
+<!-- Come funziona -->
+<section id="come-funziona">
+  <div class="fade-in">
+    <div class="section-label">Come funziona</div>
+    <h2>Semplice.<br>Automatico. Salvavita.</h2>
+    <p style="color: var(--muted); max-width: 500px; line-height: 1.7;">Non devi fare nulla. BimboSafe funziona in silenzio in background, sempre pronto.</p>
+  </div>
+  <div class="steps fade-in">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-icon">📱</div>
+      <h3>Configura una volta</h3>
+      <p>Seleziona il Bluetooth della tua auto dall'elenco. Fatto. Non serve toccare più nulla.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-icon">🚗</div>
+      <h3>Entri in auto</h3>
+      <p>Il telefono si connette al Bluetooth dell'auto. L'app rileva la connessione e mostra "Viaggio in corso".</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-icon">🚶</div>
+      <h3>Esci dall'auto</h3>
+      <p>Il Bluetooth si disconnette. Il countdown parte automaticamente. Hai 5 minuti per tornare.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-icon">✅</div>
+      <h3>Premi "OK, bimbo con me"</h3>
+      <p>Sei tornato dal bambino? Premi il pulsante verde. Tutto si azzera per il prossimo viaggio.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Fasi allarme -->
+<section style="background: var(--surface); border-radius: 32px; padding: 80px 40px; max-width: 1100px; margin: 0 auto 60px;">
+  <div class="fade-in">
+    <div class="section-label">Sistema di allarme</div>
+    <h2>Tre livelli di protezione</h2>
+  </div>
+  <div class="alarm-timeline fade-in" style="max-width: 600px; margin-top: 60px;">
+    <div class="alarm-item">
+      <div class="alarm-dot" style="background: var(--green);"></div>
+      <div class="alarm-content">
+        <div class="alarm-time">0:00 — Inizio</div>
+        <div class="alarm-title">⏱️ Countdown attivo</div>
+        <div class="alarm-desc">Beep ogni secondo. Il timer è visibile sull'app. Hai tutto il tempo per tornare.</div>
+      </div>
+    </div>
+    <div class="alarm-item">
+      <div class="alarm-dot" style="background: #f59e0b;"></div>
+      <div class="alarm-content">
+        <div class="alarm-time">2:30 — Primo avviso</div>
+        <div class="alarm-title">⚠️ Allarme sonoro</div>
+        <div class="alarm-desc">Suona per 10 secondi con vibrazione intensa. Impossibile non sentirlo.</div>
+      </div>
+    </div>
+    <div class="alarm-item">
+      <div class="alarm-dot" style="background: var(--red);"></div>
+      <div class="alarm-content">
+        <div class="alarm-time">5:00 — Emergenza</div>
+        <div class="alarm-title">🚨 Allarme massimo + SMS</div>
+        <div class="alarm-desc">Allarme in loop per 45 secondi + vibrazione continua. SMS automatico con posizione GPS a tutti i contatti di emergenza.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section id="funzionalita">
+  <div class="fade-in">
+    <div class="section-label">Funzionalità</div>
+    <h2>Tutto quello che<br>ti serve, già incluso</h2>
+  </div>
+  <div class="features-grid fade-in">
+    <div class="feature">
+      <div class="feature-icon">🔵</div>
+      <div>
+        <h3>Bluetooth automatico</h3>
+        <p>Supporta BT Classico (autoradio) e BLE. Compatibile con qualsiasi auto dal 2004 in poi.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📍</div>
+      <div>
+        <h3>GPS nell'SMS</h3>
+        <p>L'SMS di emergenza include un link Google Maps con la posizione esatta del veicolo.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔋</div>
+      <div>
+        <h3>Funziona sempre</h3>
+        <p>Gira in background anche con schermo spento. Si riavvia automaticamente dopo il riavvio del telefono.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">👥</div>
+      <div>
+        <h3>Fino a 5 contatti</h3>
+        <p>Salva fino a 5 numeri di emergenza. In caso di allarme, l'SMS viene inviato a tutti.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔒</div>
+      <div>
+        <h3>Privacy totale</h3>
+        <p>Nessun dato inviato a server esterni. Tutto rimane sul tuo dispositivo.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">💰</div>
+      <div>
+        <h3>Una tantum</h3>
+        <p>Pagamento unico di €1,99. Nessun abbonamento, nessuna pubblicità, nessun costo aggiuntivo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="disclaimer fade-in">
+    <strong>⚠️ Avviso importante:</strong> BimboSafe in Auto è uno strumento di supporto aggiuntivo. La responsabilità di verificare la presenza del bambino in auto resta esclusivamente del conducente ai sensi della L. 117/2018 in Italia. Non sostituisce l'obbligo di legge di dotarsi di un dispositivo anti-abbandono omologato.
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section fade-in" id="download">
+  <div class="section-label" style="margin-bottom: 16px;">Inizia subito</div>
+  <h2 style="font-size: clamp(28px, 5vw, 48px); margin-bottom: 20px;">Solo 1,99€.<br><span style="color: var(--gold);">Proteggi subito.</span></h2>
+  <p style="color: var(--muted); max-width: 400px; margin: 0 auto 40px; line-height: 1.7;">Pagamento unico di €1,99. Nessun abbonamento. Il tuo bambino protetto per sempre.</p>
+  <a href="#" class="btn-primary" style="font-size: 18px; padding: 18px 48px;">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.24.98.2l12.94-12.94L5.16.08c-.34-.04-.68.03-.98.2C3.48.71 3 1.5 3 2.38v19.24c0 .88.48 1.67 1.18 2.14z"/><path d="M19.5 10.5l-2.86-1.65L13.76 12l2.88 3.15 2.86-1.65c.86-.5.86-2.5 0-3z"/></svg>
+    Scarica su Google Play
+  </a>
+  <p style="color: var(--muted); font-size: 12px; margin-top: 20px;">Android • €1,99 • Pagamento unico</p>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p style="margin-bottom: 12px;">
+    <strong style="color: var(--text);">BimboSafe in Auto</strong> — Protezione anti-abbandono per bambini
+  </p>
+  <p>
+    <a href="#">Privacy Policy</a> · 
+    <a href="#">Termini di servizio</a> · 
+    <a href="mailto:info@bimbosafe.it">Contatti</a>
+  </p>
+  <p style="margin-top: 16px; font-size: 11px;">© 2026 BimboSafe. Tutti i diritti riservati.</p>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
